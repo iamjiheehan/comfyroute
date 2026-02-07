@@ -1,5 +1,5 @@
-import Sidebar from "@/app/layout/Sidebar"
-import Header from "@/app/layout/Header"
+import Sidebar from "@/components/layout/Sidebar"
+import Header from "@/components/layout/Header"
 import "./globals.css"
 
 export default function RootLayout({

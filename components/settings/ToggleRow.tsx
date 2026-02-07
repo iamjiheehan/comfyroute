@@ -1,15 +1,16 @@
-'use client'
+type ToggleRowProps = {
+    title: string
+    desc: string
+    checked: boolean
+    onChange: (v: boolean) => void
+}
 
-import { useSettingsStore } from "@/store/useSettingsStore"
-
-export function ToggleRow({ title, desc }: any) {
-
-    const {
-        commute,
-        setSeatPriority,
-    } = useSettingsStore()
-
-
+export function ToggleRow({
+    title,
+    desc,
+    checked,
+    onChange,
+}: ToggleRowProps) {
     return (
         <div className="flex justify-between items-center">
             <div>
@@ -19,10 +20,10 @@ export function ToggleRow({ title, desc }: any) {
 
             <input
                 type="checkbox"
-                checked={commute.seatPriority}
-                onChange={(e) => setSeatPriority(e.target.checked)}
+                checked={checked}
+                onChange={(e) => onChange(e.target.checked)}
+                className="w-4 h-4 accent-blue-500 cursor-pointer"
             />
-
         </div>
     )
 }
