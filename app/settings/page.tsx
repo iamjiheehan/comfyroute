@@ -1,3 +1,7 @@
+"use client"
+
+import LoginRequiredCard from "@/components/auth/LoginRequiredCard"
+import { useAuthStore } from "@/store/useAuthStore"
 
 import CommuteHistoryList from "@/components/settings/CommuteHistoryList"
 import PreferencePanel from "@/components/settings/PreferencePanel"
@@ -5,6 +9,8 @@ import StatsCard from "@/components/settings/StatsCard"
 import WeeklyScoreCard from "@/components/settings/WeeklyScoreCard"
 
 export default function SettingsPage() {
+    const user = useAuthStore((s) => s.user)
+
     return (
         <div className="mx-auto space-y-8">
 
@@ -29,8 +35,20 @@ export default function SettingsPage() {
 
             {/* Main Grid */}
             <div className="grid lg:grid-cols-3 gap-8">
+
+                {/* 왼쪽: 항상 보임 */}
                 <PreferencePanel />
-                <CommuteHistoryList />
+                <div className="lg:col-span-2 space-y-6">
+                    <h2 className="text-xl font-bold">출퇴근 기록</h2>
+                    {/* 오른쪽: 로그인 상태 분기 */}
+                    <div className="lg:col-span-2">
+                        {user ? (
+                            <CommuteHistoryList />
+                        ) : (
+                            <LoginRequiredCard />
+                        )}
+                    </div>
+                </div>
             </div>
 
         </div>

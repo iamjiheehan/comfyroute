@@ -1,17 +1,19 @@
 "use client"
+import { usePathname } from "next/navigation"
 
 import SidebarLink from "./SidebarLink"
 import SidebarUser from "./SidebarUser"
-
-import { usePathname } from "next/navigation"
+import { useUIStore } from "@/store/useUIStore"
 
 export default function Sidebar() {
     const pathname = usePathname()
+    const openLoginModal = useUIStore((s) => s.openLoginModal);
 
     const navItems = [
         { label: "대시보드", href: "/" },
-        { label: "사용자 설정", href: "/settings" },
         { label: "출퇴근 기록", href: "/analytics" },
+        { label: "사용자 설정", href: "/settings" },
+
     ]
 
     return (
@@ -21,7 +23,6 @@ export default function Sidebar() {
       bg-[#0B131A]
       border-r border-white/5
     ">
-
             {/* Top */}
             <div className="p-6">
                 <div className="flex items-center gap-3 mb-10">
@@ -45,16 +46,8 @@ export default function Sidebar() {
                     ))}
                 </nav>
             </div>
-
             {/* Bottom User */}
-            <SidebarUser
-                name="김알렉스"
-                role="프리미엄 멤버"
-                onLogout={() => {
-                    console.log("logout")
-                }}
-            />
-
+            <SidebarUser openLoginModal={openLoginModal} />
         </aside>
     )
 }

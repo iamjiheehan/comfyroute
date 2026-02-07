@@ -1,3 +1,7 @@
+import LoginGate from "@/components/auth/LoginGate"
+import LoginModal from "@/components/auth/LoginModal"
+
+
 export default function CommuteHistoryList() {
     return (
         <div className="lg:col-span-2 space-y-6">
