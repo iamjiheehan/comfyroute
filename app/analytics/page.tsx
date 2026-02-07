@@ -151,23 +151,23 @@ export default function AnalyticsPage() {
                         <div
                             key={car.carNumber}
                             className={`
-                min-w-[100px]
-                h-[80px]
-                rounded-lg
-                flex flex-col
-                items-center
-                justify-center
-                text-white
-                font-semibold
-                border
-                ${car.recommended
+                            min-w-[100px]
+                            h-[80px]
+                            rounded-lg
+                            flex flex-col
+                            items-center
+                            justify-center
+                            text-white
+                            font-semibold
+                            border
+                            ${car.recommended
                                     ? "border-blue-400 shadow-lg shadow-blue-500/20 scale-105"
                                     : "border-white/10"
                                 }
-                ${getCongestionColor(car.congestion)}
-                transition-all
-                hover:scale-105
-              `}
+                            ${getCongestionColor(car.congestion)}
+                            transition-all
+                            hover:scale-105
+                        `}
                         >
                             <div className="text-lg">{car.congestion}%</div>
                             <div className="text-xs">{car.carNumber}번 칸</div>
