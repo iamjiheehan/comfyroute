@@ -68,22 +68,6 @@ export default function LoginModal() {
                     >
                         Google로 계속하기
                     </button>
-
-                    {/* Github */}
-                    <button
-                        onClick={() => signInWithOAuth("github")}
-                        className="
-              flex items-center justify-center gap-3
-              w-full h-12
-              rounded-lg
-              bg-[#24292e]
-              text-white font-semibold
-              border border-white/10
-              hover:bg-black transition
-            "
-                    >
-                        Github로 계속하기
-                    </button>
                 </div>
 
                 {/* Divider */}
