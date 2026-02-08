@@ -17,14 +17,7 @@ export default function AuthProvider({
         const hydrateAuth = async () => {
             const { data: sessionData } = await supabase.auth.getSession()
             if (sessionData.session) {
-                const refreshedSession = await refreshAuthSession()
-                const sessionUser =
-                    refreshedSession?.user ?? sessionData.session.user
-                setUser(sessionUser ?? null)
-                if (sessionUser) {
-                    await ensureProfile(sessionUser)
-                }
-                return
+                await refreshAuthSession()
             }
 
             const { data } = await supabase.auth.getUser()

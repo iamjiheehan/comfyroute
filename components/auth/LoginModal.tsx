@@ -63,7 +63,7 @@ export default function LoginModal() {
               w-full h-12
               rounded-lg
               bg-white text-black font-semibold
-              hover:bg-gray-200 transition
+              hover:bg-gray-200 transition cursor-pointer
             "
                     >
                         Google로 계속하기
@@ -109,7 +109,7 @@ export default function LoginModal() {
 
                     <button className="
             w-full bg-blue-500 hover:bg-blue-400
-            py-3 rounded-lg font-bold
+            py-3 rounded-lg font-bold cursor-pointer
           ">
                         로그인
                     </button>
