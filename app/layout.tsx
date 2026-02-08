@@ -1,7 +1,8 @@
 import Sidebar from "@/components/layout/Sidebar"
 import Header from "@/components/layout/Header"
 import "./globals.css"
-import AuthProvider from "@/providers/AuthProvider"
+import AuthProvider from "@/components/auth/AuthProvider"
+import LoginModal from "@/components/auth/LoginModal"
 
 export default function RootLayout({
   children,
@@ -18,6 +19,7 @@ export default function RootLayout({
               <Header />
               <main className="flex-1 p-6 bg-[#0B131A]">
                 {children}
+                <LoginModal />
               </main>
             </div>
           </div>

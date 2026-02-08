@@ -10,21 +10,22 @@ export default function AuthProvider({
     children: React.ReactNode
 }) {
     const setUser = useAuthStore((s) => s.setUser)
-    const setLoading = useAuthStore((s) => s.setLoading)
 
     useEffect(() => {
-        supabase.auth.getSession().then(({ data }) => {
-            setUser(data.session?.user ?? null)
-            setLoading(false)
+        // 최초 세션 가져오기
+        supabase.auth.getUser().then(({ data }) => {
+            setUser(data.user ?? null)
         })
 
-        const { data: listener } = supabase.auth.onAuthStateChange(
-            (_, session) => {
+        // 로그인 / 로그아웃 감지
+        const { data: listener } =
+            supabase.auth.onAuthStateChange((_event, session) => {
                 setUser(session?.user ?? null)
-            }
-        )
+            })
 
-        return () => listener.subscription.unsubscribe()
+        return () => {
+            listener.subscription.unsubscribe()
+        }
     }, [])
 
     return <>{children}</>

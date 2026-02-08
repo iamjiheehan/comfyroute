@@ -22,7 +22,6 @@ export default function PreferencePanel() {
             <h2 className="text-xl font-bold">쾌적도 선호 설정</h2>
 
             <div className="bg-white/5  border border-white/10 rounded-2xl p-6 space-y-6">
-
                 {/* Toggles */}
                 <ToggleRow
                     title="항상 좌석 확보 우선"
@@ -30,7 +29,6 @@ export default function PreferencePanel() {
                     checked={seatPriority}
                     onChange={setSeatPriority}
                 />
-
                 <ToggleRow
                     title="환승 최소화"
                     desc="직통 경로 우선"

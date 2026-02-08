@@ -45,9 +45,10 @@ export default function LoginRequiredCard() {
             text-white
             font-bold
             flex items-center gap-3
-            hover:scale-105
             transition
             shadow-lg shadow-blue-500/20
+            cursor-pointer
+            hover:bg-blue-500
           "
                 >
                     <LogIn size={18} />

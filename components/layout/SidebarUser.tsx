@@ -77,6 +77,7 @@ export default function SidebarUser({
                         bg-blue-600 hover:bg-blue-500
                         text-sm font-semibold text-white
                         transition
+                        cursor-pointer
                     "
                 >
                     <LogIn size={16} />
