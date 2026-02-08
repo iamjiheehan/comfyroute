@@ -1,12 +1,12 @@
 import { supabase } from "@/lib/supabaseClient"
 
 export async function signInWithOAuth(
-    provider: "google" | "github"
+    provider: "google"
 ) {
     await supabase.auth.signInWithOAuth({
         provider,
         options: {
-            redirectTo: `${location.origin}/oauth/consent`,
+            redirectTo: `${location.origin}/auth/callback`,
         },
     })
 }
